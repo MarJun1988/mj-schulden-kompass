@@ -1,0 +1,77 @@
+import { requireUser } from "../auth/guards.js";
+import {
+  createDebt,
+  deleteDebt,
+  getDebtSummary,
+  getDebtsIOwe,
+  getDebtsOwedToMe,
+  markDebtPaid,
+  approveDebtDeletion,
+  rejectDebtDeletion,
+  requestDebtDeletion,
+  updateDebt,
+} from "../services/debtService.js";
+import { changePassword, getMe, login, register } from "../services/userService.js";
+import { getAppVersions, getLatestAppVersion } from "../services/versionService.js";
+import type { GraphQLContext } from "../types/context.js";
+import type { CreateDebtInput, UpdateDebtInput } from "../types/debt.js";
+import type { ChangePasswordInput, LoginInput, RegisterInput } from "../types/user.js";
+
+type RootParent = undefined;
+type EmptyArgs = Record<string, never>;
+
+export const resolvers = {
+  Query: {
+    me: async (_parent: RootParent, _args: EmptyArgs, context: GraphQLContext) =>
+      context.user ? getMe(context.user.id) : null,
+    debtsOwedToMe: async (_parent: RootParent, _args: EmptyArgs, context: GraphQLContext) =>
+      getDebtsOwedToMe(requireUser(context)),
+    debtsIOwe: async (_parent: RootParent, _args: EmptyArgs, context: GraphQLContext) =>
+      getDebtsIOwe(requireUser(context)),
+    debtSummary: async (_parent: RootParent, _args: EmptyArgs, context: GraphQLContext) =>
+      getDebtSummary(requireUser(context)),
+    latestAppVersion: async () => getLatestAppVersion(),
+    appVersions: async () => getAppVersions(),
+  },
+  Mutation: {
+    register: async (_parent: RootParent, args: { input: RegisterInput }) => register(args.input),
+    login: async (_parent: RootParent, args: { input: LoginInput }) => login(args.input),
+    changePassword: async (
+      _parent: RootParent,
+      args: { input: ChangePasswordInput },
+      context: GraphQLContext,
+    ) => changePassword(requireUser(context).id, args.input),
+    createDebt: async (
+      _parent: RootParent,
+      args: { input: CreateDebtInput },
+      context: GraphQLContext,
+    ) => createDebt(requireUser(context), args.input),
+    updateDebt: async (
+      _parent: RootParent,
+      args: { id: string; input: UpdateDebtInput },
+      context: GraphQLContext,
+    ) => updateDebt(requireUser(context), args.id, args.input),
+    deleteDebt: async (_parent: RootParent, args: { id: string }, context: GraphQLContext) =>
+      deleteDebt(requireUser(context), args.id),
+    markDebtPaid: async (
+      _parent: RootParent,
+      args: { id: string; paidAt?: string | null },
+      context: GraphQLContext,
+    ) => markDebtPaid(requireUser(context), args.id, args.paidAt),
+    requestDebtDeletion: async (
+      _parent: RootParent,
+      args: { id: string; reason: string },
+      context: GraphQLContext,
+    ) => requestDebtDeletion(requireUser(context), args.id, args.reason),
+    approveDebtDeletion: async (
+      _parent: RootParent,
+      args: { id: string },
+      context: GraphQLContext,
+    ) => approveDebtDeletion(requireUser(context), args.id),
+    rejectDebtDeletion: async (
+      _parent: RootParent,
+      args: { id: string },
+      context: GraphQLContext,
+    ) => rejectDebtDeletion(requireUser(context), args.id),
+  },
+};

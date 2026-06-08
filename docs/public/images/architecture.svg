@@ -1,0 +1,26 @@
+<svg width="960" height="500" viewBox="0 0 960 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="960" height="500" rx="18" fill="#f8fafc"/>
+  <text x="60" y="70" fill="#0f172a" font-family="Arial, sans-serif" font-size="34" font-weight="700">SchuldKompass Architektur</text>
+  <rect x="72" y="126" width="210" height="120" rx="12" fill="#eff6ff" stroke="#bfdbfe"/>
+  <text x="112" y="172" fill="#1d4ed8" font-family="Arial, sans-serif" font-size="22" font-weight="700">Frontend</text>
+  <text x="112" y="204" fill="#475569" font-family="Arial, sans-serif" font-size="15">Vue · Pinia · PrimeVue</text>
+  <rect x="376" y="126" width="210" height="120" rx="12" fill="#ecfdf5" stroke="#bbf7d0"/>
+  <text x="416" y="172" fill="#047857" font-family="Arial, sans-serif" font-size="22" font-weight="700">Backend</text>
+  <text x="416" y="204" fill="#475569" font-family="Arial, sans-serif" font-size="15">GraphQL · JWT · Mail</text>
+  <rect x="680" y="126" width="210" height="120" rx="12" fill="#fefce8" stroke="#fde68a"/>
+  <text x="720" y="172" fill="#a16207" font-family="Arial, sans-serif" font-size="22" font-weight="700">Postgres</text>
+  <text x="720" y="204" fill="#475569" font-family="Arial, sans-serif" font-size="15">Prisma Datenmodell</text>
+  <path d="M306 186H350" stroke="#64748b" stroke-width="4" stroke-linecap="round"/>
+  <path d="M340 174L354 186L340 198" stroke="#64748b" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M610 186H654" stroke="#64748b" stroke-width="4" stroke-linecap="round"/>
+  <path d="M644 174L658 186L644 198" stroke="#64748b" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="72" y="314" width="250" height="92" rx="12" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="106" y="354" fill="#0f172a" font-family="Arial, sans-serif" font-size="18" font-weight="700">Docs</text>
+  <text x="106" y="382" fill="#475569" font-family="Arial, sans-serif" font-size="15">VitePress unter /docs</text>
+  <rect x="356" y="314" width="250" height="92" rx="12" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="390" y="354" fill="#0f172a" font-family="Arial, sans-serif" font-size="18" font-weight="700">Nginx</text>
+  <text x="390" y="382" fill="#475569" font-family="Arial, sans-serif" font-size="15">Frontend · API · Docs</text>
+  <rect x="640" y="314" width="250" height="92" rx="12" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="674" y="354" fill="#0f172a" font-family="Arial, sans-serif" font-size="18" font-weight="700">Mailpit / SMTP</text>
+  <text x="674" y="382" fill="#475569" font-family="Arial, sans-serif" font-size="15">Lokale und echte Mails</text>
+</svg>

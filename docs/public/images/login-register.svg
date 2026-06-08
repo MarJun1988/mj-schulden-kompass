@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Login und Registrierung</title>
+  <desc id="desc">Illustration des SchuldKompass Login-Formulars.</desc>
+  <rect width="960" height="540" fill="#f6f7f2"/>
+  <rect x="305" y="66" width="350" height="408" rx="8" fill="#ffffff" stroke="#d6d3d1"/>
+  <text x="350" y="125" fill="#064e3b" font-family="Arial, sans-serif" font-size="34" font-weight="700">SchuldKompass</text>
+  <rect x="350" y="160" width="260" height="42" rx="6" fill="#ecfdf5" stroke="#86efac"/>
+  <rect x="352" y="162" width="128" height="38" rx="5" fill="#047857"/>
+  <text x="395" y="187" fill="#ffffff" font-family="Arial, sans-serif" font-size="15" font-weight="700">Login</text>
+  <text x="504" y="187" fill="#166534" font-family="Arial, sans-serif" font-size="15" font-weight="700">Registrieren</text>
+  <text x="350" y="240" fill="#57534e" font-family="Arial, sans-serif" font-size="14" font-weight="700">E-Mail</text>
+  <rect x="350" y="252" width="260" height="44" rx="6" fill="#ffffff" stroke="#d6d3d1"/>
+  <text x="370" y="280" fill="#a8a29e" font-family="Arial, sans-serif" font-size="15">name@example.com</text>
+  <text x="350" y="328" fill="#57534e" font-family="Arial, sans-serif" font-size="14" font-weight="700">Passwort</text>
+  <rect x="350" y="340" width="260" height="44" rx="6" fill="#ffffff" stroke="#d6d3d1"/>
+  <text x="370" y="368" fill="#a8a29e" font-family="Arial, sans-serif" font-size="18">********</text>
+  <rect x="350" y="414" width="260" height="48" rx="6" fill="#047857"/>
+  <text x="455" y="444" fill="#ffffff" font-family="Arial, sans-serif" font-size="16" font-weight="700" text-anchor="middle">Einloggen</text>
+  <circle cx="182" cy="146" r="52" fill="#d9f99d"/>
+  <path d="M182 105 209 146 182 187 155 146 182 105Z" fill="#064e3b"/>
+  <circle cx="758" cy="410" r="54" fill="#bbf7d0"/>
+  <path d="M758 370 786 410 758 450 730 410 758 370Z" fill="#065f46"/>
+</svg>

@@ -1,0 +1,106 @@
+name: schuldkompass
+
+services:
+  edge:
+    image: marjun1988/mj-schulden-kompass-edge:${VERSION:-latest}
+    container_name: schuldkompass-edge
+    restart: unless-stopped
+    depends_on:
+      frontend:
+        condition: service_healthy
+      docs:
+        condition: service_healthy
+      backend:
+        condition: service_healthy
+    ports:
+      - "${EDGE_HTTP_PORT:-80}:80"
+      - "${EDGE_HTTPS_PORT:-443}:443"
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q -O - http://127.0.0.1/ | grep -q 'SchuldKompass'"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+  frontend:
+    image: marjun1988/mj-schulden-kompass-frontend:${VERSION:-latest}
+    container_name: schuldkompass-frontend
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q -O - http://127.0.0.1/ | grep -q 'SchuldKompass'"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+  docs:
+    image: marjun1988/mj-schulden-kompass-docs:${VERSION:-latest}
+    container_name: schuldkompass-docs
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q -O - http://127.0.0.1/ | grep -q 'SchuldKompass'"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+  backend:
+    image: marjun1988/mj-schulden-kompass-backend:${VERSION:-latest}
+    container_name: schuldkompass-backend
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: "${DATABASE_URL:?DATABASE_URL is required in production}"
+      PORT: 4001
+      JWT_SECRET: "${JWT_SECRET:?JWT_SECRET is required in production}"
+      APP_URL: "${APP_URL:?APP_URL is required in production}"
+      MAIL_FROM: "${MAIL_FROM:?MAIL_FROM is required in production}"
+      SMTP_HOST: "${SMTP_HOST:?SMTP_HOST is required in production}"
+      SMTP_PORT: "${SMTP_PORT:-587}"
+      SMTP_SECURE: "${SMTP_SECURE:-false}"
+      SMTP_USER: "${SMTP_USER:?SMTP_USER is required in production}"
+      SMTP_PASS: "${SMTP_PASS:?SMTP_PASS is required in production}"
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          'node -e "fetch(''http://127.0.0.1:4001/graphql'',{method:''POST'',headers:{''content-type'':''application/json''},body:JSON.stringify({query:''query { __typename }''})}).then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"',
+        ]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 20s
+
+  migrate:
+    image: marjun1988/mj-schulden-kompass-backend:${VERSION:-latest}
+    container_name: schuldkompass-migrate
+    profiles: ["migrate"]
+    restart: "no"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: "${DATABASE_URL:?DATABASE_URL is required in production}"
+    command: ["sh", "-c", "cd backend && npx prisma migrate deploy"]
+
+  postgres:
+    image: postgres:16-alpine
+    container_name: schuldkompass-prod-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: "${POSTGRES_DB:?POSTGRES_DB is required in production}"
+      POSTGRES_USER: "${POSTGRES_USER:?POSTGRES_USER is required in production}"
+      POSTGRES_PASSWORD: "${POSTGRES_PASSWORD:?POSTGRES_PASSWORD is required in production}"
+    volumes:
+      - postgres-prod-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+
+volumes:
+  postgres-prod-data:

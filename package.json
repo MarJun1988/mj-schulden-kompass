@@ -1,0 +1,38 @@
+{
+  "name": "schuldkompass",
+  "version": "0.1.6",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "backend",
+    "docs"
+  ],
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently -n frontend,backend -c cyan,green \"npm run dev -w frontend\" \"npm run dev -w backend\"",
+    "dev:frontend": "npm run dev -w frontend",
+    "dev:backend": "npm run dev -w backend",
+    "dev:docs": "npm run docs:dev -w docs",
+    "build": "npm run build -w frontend && npm run build -w backend",
+    "build:docs": "npm run docs:build -w docs",
+    "preview:docs": "npm run docs:preview -w docs",
+    "docker:prod:build": "docker compose -f docker-compose.prod.yml build",
+    "docker:prod:up": "docker compose -f docker-compose.prod.yml up -d",
+    "docker:prod:up:local": "EDGE_HTTP_PORT=8080 EDGE_HTTPS_PORT=8443 docker compose -f docker-compose.prod.yml up -d",
+    "docker:prod:down": "docker compose -f docker-compose.prod.yml down",
+    "lint": "oxlint backend/src frontend/src docs/.vitepress/config.ts --import-plugin --node-plugin --promise-plugin --vue-plugin --deny-warnings",
+    "lint:fix": "oxlint backend/src frontend/src docs/.vitepress/config.ts --import-plugin --node-plugin --promise-plugin --vue-plugin --fix",
+    "format": "oxfmt --write .gitignore .oxlintrc.json .oxfmtrc.json package.json backend frontend docs/.vitepress/config.ts docs/api docs/development docs/guide docs/index.md docs/changelog.md docs/public/images CHANGELOG.md docker-compose.yml docker-compose.prod.yml README.md",
+    "format:check": "oxfmt --check .gitignore .oxlintrc.json .oxfmtrc.json package.json backend frontend docs/.vitepress/config.ts docs/api docs/development docs/guide docs/index.md docs/changelog.md docs/public/images CHANGELOG.md docker-compose.yml docker-compose.prod.yml README.md",
+    "typecheck": "npm run typecheck -w frontend && npm run typecheck -w backend",
+    "db:up": "docker compose up -d postgres",
+    "db:down": "docker compose down",
+    "prisma:generate": "npm run prisma:generate -w backend",
+    "prisma:migrate": "npm run prisma:migrate -w backend"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "oxfmt": "^0.53.0",
+    "oxlint": "^1.68.0"
+  }
+}

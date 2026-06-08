@@ -1,0 +1,1 @@
+{"root":["./src/main.ts","./src/vite-env.d.ts","./src/router/index.ts","./src/stores/transactions.ts","./src/App.vue","./src/views/DashboardView.vue","./src/views/TransactionsView.vue"],"errors":true,"version":"6.0.3"}

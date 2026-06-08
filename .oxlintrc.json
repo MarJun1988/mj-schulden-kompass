@@ -1,0 +1,23 @@
+{
+  "$schema": "https://raw.githubusercontent.com/oxc-project/oxc/main/npm/oxlint/configuration_schema.json",
+  "env": {
+    "browser": true,
+    "es2022": true,
+    "node": true
+  },
+  "ignorePatterns": [
+    "backend/dist/**",
+    "frontend/dist/**",
+    "docs/.git/**",
+    "docs/.vitepress/cache/**",
+    "docs/.vitepress/.temp/**",
+    "docs/.vitepress/dist/**",
+    "node_modules/**"
+  ],
+  "plugins": ["typescript", "vue", "import", "node", "promise", "oxc"],
+  "rules": {
+    "no-console": "off",
+    "typescript/no-explicit-any": "error",
+    "typescript/no-non-null-assertion": "warn"
+  }
+}

@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Mailpit Mailbox</title>
+  <desc id="desc">Illustration der lokalen Mailpit Mailbox.</desc>
+  <rect width="960" height="540" fill="#f6f7f2"/>
+  <rect x="58" y="52" width="844" height="436" rx="8" fill="#ffffff" stroke="#d6d3d1"/>
+  <rect x="58" y="52" width="844" height="58" rx="8" fill="#064e3b"/>
+  <text x="88" y="88" fill="#ffffff" font-family="Arial, sans-serif" font-size="22" font-weight="700">Mailpit - lokale Mailbox</text>
+  <text x="744" y="88" fill="#d9f99d" font-family="Arial, sans-serif" font-size="15">localhost:8025</text>
+  <rect x="92" y="148" width="330" height="340" fill="#fafaf9" stroke="#e7e5e4"/>
+  <g font-family="Arial, sans-serif">
+    <rect x="112" y="168" width="290" height="72" rx="6" fill="#ecfdf5" stroke="#bbf7d0"/>
+    <text x="132" y="196" fill="#064e3b" font-size="16" font-weight="700">Willkommen bei SchuldKompass</text>
+    <text x="132" y="220" fill="#57534e" font-size="13">an marcel@example.com</text>
+    <rect x="112" y="258" width="290" height="72" rx="6" fill="#ffffff" stroke="#e7e5e4"/>
+    <text x="132" y="286" fill="#1c1917" font-size="16" font-weight="700">Neue Schuld eingetragen</text>
+    <text x="132" y="310" fill="#57534e" font-size="13">an max@example.com</text>
+  </g>
+  <rect x="462" y="148" width="402" height="340" fill="#ffffff" stroke="#e7e5e4"/>
+  <text x="502" y="202" fill="#064e3b" font-family="Arial, sans-serif" font-size="26" font-weight="700">Neue Schuld eingetragen</text>
+  <text x="502" y="244" fill="#57534e" font-family="Arial, sans-serif" font-size="16">Hallo Max Mustermann,</text>
+  <text x="502" y="276" fill="#57534e" font-family="Arial, sans-serif" font-size="16">Lisa hat eine neue Schuld fuer dich eingetragen.</text>
+  <rect x="502" y="310" width="300" height="112" rx="6" fill="#f5f5f4" stroke="#d6d3d1"/>
+  <text x="526" y="348" fill="#57534e" font-family="Arial, sans-serif" font-size="15">Betrag</text>
+  <text x="736" y="348" fill="#047857" font-family="Arial, sans-serif" font-size="17" font-weight="700" text-anchor="end">42,00 EUR</text>
+  <text x="526" y="382" fill="#57534e" font-family="Arial, sans-serif" font-size="15">Zweck</text>
+  <text x="736" y="382" fill="#1c1917" font-family="Arial, sans-serif" font-size="15" text-anchor="end">Konzertticket</text>
+  <rect x="502" y="444" width="170" height="38" rx="6" fill="#047857"/>
+  <text x="587" y="468" fill="#ffffff" font-family="Arial, sans-serif" font-size="15" font-weight="700" text-anchor="middle">Schulden ansehen</text>
+</svg>

@@ -1,0 +1,12 @@
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">SchuldKompass Logo</title>
+  <desc id="desc">Kompass-Symbol mit stilisiertem Geldschein und Richtungspfeil.</desc>
+  <rect width="128" height="128" rx="28" fill="#0f172a"/>
+  <circle cx="64" cy="64" r="42" fill="#0f766e"/>
+  <circle cx="64" cy="64" r="34" fill="#ecfdf5"/>
+  <path d="M74 23L82 45L104 53L82 61L74 83L66 61L44 53L66 45L74 23Z" fill="#f59e0b"/>
+  <path d="M39 77C39 72.5817 42.5817 69 47 69H89C93.4183 69 97 72.5817 97 77V89C97 93.4183 93.4183 97 89 97H47C42.5817 97 39 93.4183 39 89V77Z" fill="#10b981"/>
+  <path d="M50 79H78" stroke="#ecfdf5" stroke-width="6" stroke-linecap="round"/>
+  <path d="M50 88H66" stroke="#ecfdf5" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="86" cy="84" r="6" fill="#ecfdf5"/>
+</svg>

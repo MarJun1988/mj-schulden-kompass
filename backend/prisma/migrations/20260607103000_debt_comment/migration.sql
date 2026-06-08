@@ -1,0 +1,2 @@
+ALTER TABLE "Debt"
+ADD COLUMN "comment" TEXT;

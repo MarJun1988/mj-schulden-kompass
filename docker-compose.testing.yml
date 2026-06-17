@@ -1,0 +1,111 @@
+name: schuldkompass-testing
+
+services:
+  edge:
+    image: "${GITLAB_IMAGE_EDGE:-registry.gitlab.com/marjun1988/mj-schulden-kompass/edge}:${VERSION:-latest}"
+    container_name: schuldkompass-testing-edge
+    restart: unless-stopped
+    depends_on:
+      frontend:
+        condition: service_healthy
+      docs:
+        condition: service_healthy
+      backend:
+        condition: service_healthy
+    ports:
+      - "${EDGE_HTTP_PORT:-8080}:80"
+      - "${EDGE_HTTPS_PORT:-8443}:443"
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q -O - http://127.0.0.1/ | grep -q 'SchuldKompass'"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+  frontend:
+    image: "${GITLAB_IMAGE_FRONTEND:-registry.gitlab.com/marjun1988/mj-schulden-kompass/frontend}:${VERSION:-latest}"
+    container_name: schuldkompass-testing-frontend
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q -O - http://127.0.0.1/ | grep -q 'SchuldKompass'"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+  docs:
+    image: "${GITLAB_IMAGE_DOCS:-registry.gitlab.com/marjun1988/mj-schulden-kompass/docs}:${VERSION:-latest}"
+    container_name: schuldkompass-testing-docs
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q -O - http://127.0.0.1/ | grep -q 'SchuldKompass'"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+  backend:
+    image: "${GITLAB_IMAGE_BACKEND:-registry.gitlab.com/marjun1988/mj-schulden-kompass/backend}:${VERSION:-latest}"
+    container_name: schuldkompass-testing-backend
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: "${DATABASE_URL:?DATABASE_URL is required in testing}"
+      PORT: 4001
+      JWT_SECRET: "${JWT_SECRET:?JWT_SECRET is required in testing}"
+      APP_URL: "${APP_URL:?APP_URL is required in testing}"
+      LOG_LEVEL: "${LOG_LEVEL:-info}"
+      GITHUB_RELEASE_CHECK_ENABLED: "${GITHUB_RELEASE_CHECK_ENABLED:-false}"
+      GITHUB_RELEASE_REPOSITORY: "${GITHUB_RELEASE_REPOSITORY:-MarJun1988/mj-schulden-kompass}"
+      GITHUB_RELEASE_CHECK_TTL_MINUTES: "${GITHUB_RELEASE_CHECK_TTL_MINUTES:-60}"
+      GITHUB_RELEASE_CHECK_TIMEOUT_MS: "${GITHUB_RELEASE_CHECK_TIMEOUT_MS:-3000}"
+      MAIL_FROM: "${MAIL_FROM:?MAIL_FROM is required in testing}"
+      SMTP_HOST: "${SMTP_HOST:?SMTP_HOST is required in testing}"
+      SMTP_PORT: "${SMTP_PORT:-587}"
+      SMTP_SECURE: "${SMTP_SECURE:-false}"
+      SMTP_USER: "${SMTP_USER:?SMTP_USER is required in testing}"
+      SMTP_PASS: "${SMTP_PASS:?SMTP_PASS is required in testing}"
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          'node -e "fetch(''http://127.0.0.1:4001/graphql'',{method:''POST'',headers:{''content-type'':''application/json''},body:JSON.stringify({query:''query { __typename }''})}).then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"',
+        ]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 20s
+
+  migrate:
+    image: "${GITLAB_IMAGE_BACKEND:-registry.gitlab.com/marjun1988/mj-schulden-kompass/backend}:${VERSION:-latest}"
+    container_name: schuldkompass-testing-migrate
+    profiles: ["migrate"]
+    restart: "no"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: "${DATABASE_URL:?DATABASE_URL is required in testing}"
+    command: ["sh", "-c", "cd backend && npx prisma migrate deploy"]
+
+  postgres:
+    image: postgres:16-alpine
+    container_name: schuldkompass-testing-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: "${POSTGRES_DB:?POSTGRES_DB is required in testing}"
+      POSTGRES_USER: "${POSTGRES_USER:?POSTGRES_USER is required in testing}"
+      POSTGRES_PASSWORD: "${POSTGRES_PASSWORD:?POSTGRES_PASSWORD is required in testing}"
+    volumes:
+      - postgres-testing-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+
+volumes:
+  postgres-testing-data:

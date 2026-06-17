@@ -1,0 +1,11 @@
+node_modules
+**/node_modules
+dist
+**/dist
+docs/.vitepress/dist
+.git
+.agents
+.codex
+.env
+backend/.env
+*.log

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 360" role="img" aria-labelledby="title desc">
+  <title id="title">SchuldKompass Ablauf</title>
+  <desc id="desc">Ablauf von Registrierung, Schuld eintragen, E-Mail und Schuldneransicht.</desc>
+  <rect width="960" height="360" fill="#f8fafc"/>
+  <g font-family="Arial, sans-serif">
+    <rect x="58" y="122" width="170" height="92" rx="8" fill="#ffffff" stroke="#d6d3d1"/>
+    <circle cx="94" cy="168" r="20" fill="#dbeafe"/>
+    <text x="128" y="158" fill="#312e81" font-size="16" font-weight="700">Registrieren</text>
+    <text x="128" y="184" fill="#57534e" font-size="13">JWT erhalten</text>
+    <path d="M244 168h74" stroke="#0369a1" stroke-width="4" stroke-linecap="round"/>
+    <path d="M318 168 302 156v24l16-12Z" fill="#0369a1"/>
+    <rect x="338" y="122" width="170" height="92" rx="8" fill="#ffffff" stroke="#d6d3d1"/>
+    <circle cx="374" cy="168" r="20" fill="#dbeafe"/>
+    <text x="408" y="158" fill="#312e81" font-size="16" font-weight="700">Schuld erfassen</text>
+    <text x="408" y="184" fill="#57534e" font-size="13">Betrag und Zweck</text>
+    <path d="M524 168h74" stroke="#0369a1" stroke-width="4" stroke-linecap="round"/>
+    <path d="M598 168 582 156v24l16-12Z" fill="#0369a1"/>
+    <rect x="618" y="122" width="170" height="92" rx="8" fill="#ffffff" stroke="#d6d3d1"/>
+    <circle cx="654" cy="168" r="20" fill="#dbeafe"/>
+    <text x="688" y="158" fill="#312e81" font-size="16" font-weight="700">Mail senden</text>
+    <text x="688" y="184" fill="#57534e" font-size="13">an Schuldner</text>
+    <path d="M804 168h74" stroke="#0369a1" stroke-width="4" stroke-linecap="round"/>
+    <path d="M878 168 862 156v24l16-12Z" fill="#0369a1"/>
+    <rect x="58" y="250" width="848" height="1" fill="#d6d3d1"/>
+    <rect x="58" y="270" width="848" height="54" rx="8" fill="#f0f9ff" stroke="#bae6fd"/>
+    <text x="82" y="304" fill="#312e81" font-size="17" font-weight="700">Der Schuldner meldet sich mit derselben E-Mail-Adresse an und sieht offene sowie bezahlte Eintraege.</text>
+  </g>
+</svg>

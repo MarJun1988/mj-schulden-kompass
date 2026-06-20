@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Neue Schuld erfassen</title>
+  <desc id="desc">Illustration des Formulars zum Erfassen einer neuen Schuld.</desc>
+  <rect width="960" height="540" fill="#f6f7f2"/>
+  <rect x="72" y="46" width="330" height="486" rx="8" fill="#ffffff" stroke="#d6d3d1"/>
+  <text x="108" y="96" fill="#064e3b" font-family="Arial, sans-serif" font-size="28" font-weight="700">Neue Schuld</text>
+  <g font-family="Arial, sans-serif">
+    <text x="108" y="140" fill="#57534e" font-size="13" font-weight="700">Bekannter Schuldner</text>
+    <rect x="108" y="150" width="250" height="38" rx="6" fill="#ffffff" stroke="#d6d3d1"/>
+    <text x="124" y="174" fill="#78716c" font-size="14">Max Mustermann</text>
+    <path d="M336 164 344 172 352 164" fill="none" stroke="#57534e" stroke-width="2"/>
+    <text x="108" y="216" fill="#57534e" font-size="13" font-weight="700">Betrag</text>
+    <rect x="108" y="226" width="250" height="38" rx="6" fill="#ffffff" stroke="#d6d3d1"/>
+    <text x="124" y="250" fill="#064e3b" font-size="15" font-weight="700">42,00 EUR</text>
+    <text x="108" y="292" fill="#57534e" font-size="13" font-weight="700">Zweck</text>
+    <rect x="108" y="302" width="250" height="38" rx="6" fill="#ffffff" stroke="#d6d3d1"/>
+    <text x="124" y="326" fill="#78716c" font-size="14">Konzertticket</text>
+    <text x="108" y="368" fill="#57534e" font-size="13" font-weight="700">Kategorie</text>
+    <rect x="108" y="378" width="250" height="38" rx="6" fill="#ffffff" stroke="#d6d3d1"/>
+    <text x="124" y="402" fill="#78716c" font-size="14">Konzert</text>
+    <path d="M336 392 344 400 352 392" fill="none" stroke="#57534e" stroke-width="2"/>
+    <rect x="108" y="454" width="250" height="44" rx="6" fill="#047857"/>
+    <text x="233" y="482" fill="#ffffff" font-size="16" font-weight="700" text-anchor="middle">Speichern</text>
+  </g>
+  <rect x="470" y="78" width="390" height="98" rx="8" fill="#ecfdf5" stroke="#bbf7d0"/>
+  <text x="505" y="120" fill="#064e3b" font-family="Arial, sans-serif" font-size="22" font-weight="700">Dropdowns sparen Zeit</text>
+  <text x="505" y="148" fill="#57534e" font-family="Arial, sans-serif" font-size="16">Bekannte Schuldner und Kategorien werden automatisch vorgeschlagen.</text>
+  <rect x="470" y="216" width="390" height="222" rx="8" fill="#ffffff" stroke="#d6d3d1"/>
+  <text x="505" y="262" fill="#064e3b" font-family="Arial, sans-serif" font-size="22" font-weight="700">E-Mail geht automatisch raus</text>
+  <text x="505" y="296" fill="#57534e" font-family="Arial, sans-serif" font-size="16">Nach dem Speichern bekommt der Schuldner eine Nachricht.</text>
+  <path d="M520 348h210" stroke="#047857" stroke-width="6" stroke-linecap="round"/>
+  <path d="M730 348 704 326v44l26-22Z" fill="#047857"/>
+  <rect x="765" y="322" width="48" height="52" rx="4" fill="#d9f99d" stroke="#84cc16"/>
+  <path d="M765 328 789 350 813 328" fill="none" stroke="#365314" stroke-width="3"/>
+</svg>

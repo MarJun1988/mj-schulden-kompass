@@ -1,0 +1,1 @@
+ALTER TYPE "DebtCreditEntryType" ADD VALUE 'TRANSFER';

@@ -1,0 +1,173 @@
+import "./style.css";
+import "primeicons/primeicons.css";
+
+import Aura from "@primeuix/themes/aura";
+import AutoComplete from "primevue/autocomplete";
+import Button from "primevue/button";
+import Card from "primevue/card";
+import Checkbox from "primevue/checkbox";
+import Column from "primevue/column";
+import DataTable from "primevue/datatable";
+import DatePicker from "primevue/datepicker";
+import Dialog from "primevue/dialog";
+import FloatLabel from "primevue/floatlabel";
+import InputNumber from "primevue/inputnumber";
+import InputText from "primevue/inputtext";
+import Menubar from "primevue/menubar";
+import PrimeVue from "primevue/config";
+import Password from "primevue/password";
+import ProgressSpinner from "primevue/progressspinner";
+import SelectButton from "primevue/selectbutton";
+import Tab from "primevue/tab";
+import TabList from "primevue/tablist";
+import TabPanel from "primevue/tabpanel";
+import TabPanels from "primevue/tabpanels";
+import Tabs from "primevue/tabs";
+import Textarea from "primevue/textarea";
+import Toast from "primevue/toast";
+import ToastService from "primevue/toastservice";
+import { createPinia } from "pinia";
+import { createApp } from "vue";
+
+import App from "./App.vue";
+import router from "./router";
+
+const app = createApp(App);
+
+app.use(createPinia());
+app.use(router);
+app.use(ToastService);
+app.use(PrimeVue, {
+  pt: {
+    dialog: {
+      header: {
+        class: "border-b border-stone-200 dark:border-stone-700",
+      },
+      footer: {
+        class: "border-t border-stone-200 dark:border-stone-700",
+      },
+    },
+  },
+  theme: {
+    preset: Aura,
+    options: {
+      darkModeSelector: ".app-dark",
+    },
+  },
+  locale: {
+    accept: "Ja",
+    addRule: "Regel hinzufügen",
+    after: "Nach",
+    apply: "Anwenden",
+    before: "Vor",
+    cancel: "Abbrechen",
+    choose: "Auswählen",
+    clear: "Leeren",
+    contains: "Enthält",
+    dateAfter: "Datum ist nach",
+    dateBefore: "Datum ist vor",
+    dateFormat: "dd.mm.yy",
+    dateIs: "Datum ist",
+    dateIsNot: "Datum ist nicht",
+    dayNames: ["Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"],
+    dayNamesMin: ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa"],
+    dayNamesShort: ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa"],
+    emptyFilterMessage: "Keine Ergebnisse gefunden",
+    emptyMessage: "Keine Einträge vorhanden",
+    emptySearchMessage: "Keine Ergebnisse gefunden",
+    emptySelectionMessage: "Keine Auswahl",
+    endsWith: "Endet mit",
+    equals: "Gleich",
+    fileSizeTypes: ["B", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"],
+    filter: "Filtern",
+    firstDayOfWeek: 1,
+    gt: "Größer als",
+    gte: "Größer oder gleich",
+    lt: "Kleiner als",
+    lte: "Kleiner oder gleich",
+    matchAll: "Alle Regeln",
+    matchAny: "Eine Regel",
+    medium: "Mittel",
+    monthNames: [
+      "Januar",
+      "Februar",
+      "März",
+      "April",
+      "Mai",
+      "Juni",
+      "Juli",
+      "August",
+      "September",
+      "Oktober",
+      "November",
+      "Dezember",
+    ],
+    monthNamesShort: [
+      "Jan",
+      "Feb",
+      "Mär",
+      "Apr",
+      "Mai",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Okt",
+      "Nov",
+      "Dez",
+    ],
+    nextDecade: "Nächstes Jahrzehnt",
+    nextHour: "Nächste Stunde",
+    nextMinute: "Nächste Minute",
+    nextMonth: "Nächster Monat",
+    nextSecond: "Nächste Sekunde",
+    nextYear: "Nächstes Jahr",
+    noFilter: "Kein Filter",
+    notContains: "Enthält nicht",
+    notEquals: "Ungleich",
+    now: "Jetzt",
+    passwordPrompt: "Passwort eingeben",
+    pending: "Ausstehend",
+    prevDecade: "Vorheriges Jahrzehnt",
+    prevHour: "Vorherige Stunde",
+    prevMinute: "Vorherige Minute",
+    prevMonth: "Vorheriger Monat",
+    prevSecond: "Vorherige Sekunde",
+    prevYear: "Vorheriges Jahr",
+    reject: "Nein",
+    removeRule: "Regel entfernen",
+    searchMessage: "{0} Ergebnisse verfügbar",
+    selectionMessage: "{0} Einträge ausgewählt",
+    startsWith: "Beginnt mit",
+    strong: "Stark",
+    today: "Heute",
+    upload: "Hochladen",
+    weak: "Schwach",
+    weekHeader: "KW",
+  },
+});
+
+app.component("AutoComplete", AutoComplete);
+app.component("Button", Button);
+app.component("Card", Card);
+app.component("Checkbox", Checkbox);
+app.component("Column", Column);
+app.component("DataTable", DataTable);
+app.component("DatePicker", DatePicker);
+app.component("Dialog", Dialog);
+app.component("FloatLabel", FloatLabel);
+app.component("InputNumber", InputNumber);
+app.component("InputText", InputText);
+app.component("Menubar", Menubar);
+app.component("Password", Password);
+app.component("ProgressSpinner", ProgressSpinner);
+app.component("SelectButton", SelectButton);
+app.component("Tab", Tab);
+app.component("TabList", TabList);
+app.component("TabPanel", TabPanel);
+app.component("TabPanels", TabPanels);
+app.component("Tabs", Tabs);
+app.component("Textarea", Textarea);
+app.component("Toast", Toast);
+
+app.mount("#app");
